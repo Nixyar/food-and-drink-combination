@@ -1,0 +1,5 @@
+@mixin query($media) {
+  @media only screen and #{$media} {
+    @content;
+  }
+}

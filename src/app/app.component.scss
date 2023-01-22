@@ -1,0 +1,24 @@
+.max-container {
+  padding: 32px;
+}
+
+.form {
+  margin-bottom: 24px;
+}
+
+.form__submit {
+  display: flex;
+  justify-content: right;
+}
+
+.form__submit button:first-child {
+  margin-right: 12px;
+}
+
+mat-form-field {
+  margin-right: 12px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

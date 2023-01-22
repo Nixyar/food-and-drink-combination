@@ -1,0 +1,18 @@
+$xs: "(min-width: 320px) and (max-width: 767px)";
+$sm: "(min-width: 768px) and (max-width: 1023px)";
+$md: "(min-width: 1024px) and (max-width: 1279px)";
+$lg: "(min-width: 1280px) and (max-width: 1439px)";
+$xl: "(min-width: 1440px) and (max-width: 5000px)";
+
+//MAX
+$lt-sm: "(max-width: 767px)";
+$lt-md: "(max-width: 1023px)";
+$lt-lg: "(max-width: 1279px)";
+$lt-xl: "(max-width: 1439px)";
+
+//MIN
+$gt-xxs: "(min-width: 320px)";
+$gt-xs: "(min-width: 768px)";
+$gt-sm: "(min-width: 1024px)";
+$gt-md: "(min-width: 1280px)";
+$gt-lg: "(min-width: 1440px)";
