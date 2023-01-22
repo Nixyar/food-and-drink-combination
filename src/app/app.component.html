@@ -1,0 +1,66 @@
+<main class="max-container">
+    <form class="form" [formGroup]="form">
+        <h4>Выберите продукт:</h4>
+        <mat-form-field appearance="fill">
+            <mat-label>Выберите продукт:</mat-label>
+            <mat-select [formControlName]="'product'">
+                <mat-option *ngFor="let product of productList" [value]="product">
+                    {{product.title}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="form.controls.product.value">
+            <mat-form-field appearance="fill" *ngIf="form.controls.product.value.isHasDrink">
+                <mat-label>Выберите напиток:</mat-label>
+                <mat-select [formControlName]="'drink'">
+                    <mat-option *ngFor="let drink of drinkList" [value]="drink">
+                        {{drink}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" *ngIf="form.controls.product.value.isHasFood">
+                <mat-label>Выберите блюдо:</mat-label>
+                <mat-select [formControlName]="'food'">
+                    <mat-option *ngFor="let food of foodList" [value]="food">
+                        {{food}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="form.controls.product.value.isHasComment">
+                <mat-label>Комментарий</mat-label>
+                <input matInput value="" [formControlName]="'comment'">
+            </mat-form-field>
+            <div class="form__submit">
+                <button mat-stroked-button color="warn" (click)="resetForm()">Отмена</button>
+                <button mat-raised-button color="primary" [disabled]="!validateForm()" (click)="submitForm()">Сохранить</button>
+            </div>
+        </div>
+    </form>
+
+    <ng-container *ngIf="data$ | async as data">
+        <table mat-table [dataSource]="data" class="table mat-elevation-z8" *ngIf="data.length">
+            <ng-container matColumnDef="product">
+                <th mat-header-cell *matHeaderCellDef> Продукт </th>
+                <td mat-cell *matCellDef="let element"> {{element.product}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="drink">
+                <th mat-header-cell *matHeaderCellDef> Напиток </th>
+                <td mat-cell *matCellDef="let element"> {{element.drink}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="food">
+                <th mat-header-cell *matHeaderCellDef> Блюдо </th>
+                <td mat-cell *matCellDef="let element"> {{element.food}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="comment">
+                <th mat-header-cell *matHeaderCellDef> Комментарий </th>
+                <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </ng-container>
+</main>

@@ -1,0 +1,14 @@
+@import "assets/global/reset.scss";
+@import "assets/global/variables.scss";
+@import "assets/global/mixins.scss";
+@import "assets/global/fonts.scss";
+@import "assets/global/colors.scss";
+
+.max-container {
+  max-width: 1440px;
+  min-width: 320px;
+  margin: auto;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
